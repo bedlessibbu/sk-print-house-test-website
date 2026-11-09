@@ -24,26 +24,23 @@ http://localhost:5173
 
 ### Stop the running dev server
 
-If it was started in this session, stop the Vite process:
-
-```powershell
-Stop-Process -Id 9400
-```
-
-Or stop the npm wrapper and its child:
-
-```powershell
-Stop-Process -Id 27172 -Force
-Stop-Process -Id 9400 -Force
-```
-
-If you cannot find the process, stop whatever is listening on port 5173:
+Stop whatever is listening on port 5173:
 
 ```powershell
 Get-NetTCPConnection -LocalPort 5173 -State Listen |
   Select-Object -ExpandProperty OwningProcess -Unique |
   ForEach-Object { Stop-Process -Id $_ -Force }
 ```
+
+You can also close the terminal window running the server, or press `Ctrl + C` in it.
+
+To confirm the port is free afterwards:
+
+```powershell
+netstat -ano | findstr ":5173"
+```
+
+No `LISTENING` line means it has stopped.
 
 ### Restart
 
@@ -108,7 +105,8 @@ and open `http://localhost:5174`.
 All business details live in **`src/config/business.ts`**:
 
 - phone: `+91 96436 62299`
-- email: `skprinthouse@gmail.com`
+- CEO direct line: `+91 99998 28273`
+- email: `sk.printhouse@gmail.com`
 - WhatsApp: `+919643662299`
 - tagline: `Your Complete Printing Solution`
 - navigation, service options, form endpoint, site URL

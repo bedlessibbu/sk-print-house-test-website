@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone } from 'lucide-react'
-import { business, mailHref, navLinks, telHref, whatsappHref, defaultWhatsappMessage } from '../../config/business'
+import { business, ceoTelHref, mailHref, navLinks, telHref, whatsappHref, defaultWhatsappMessage } from '../../config/business'
 import { services } from '../../content/services'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
 
@@ -36,6 +36,15 @@ export function Footer() {
                   <Phone size={14} strokeWidth={1.7} />
                 </span>
                 {business.phone.display}
+              </a>
+              <a href={ceoTelHref} className="group flex items-center gap-3 text-paper/80 transition-colors hover:text-paper">
+                <span className="grid h-9 w-9 place-items-center rounded-full border border-paper/20 transition-colors group-hover:border-paper">
+                  <Phone size={14} strokeWidth={1.7} />
+                </span>
+                <span>
+                  <span className="block text-[9px] uppercase tracking-[0.18em] text-paper/40">CEO direct</span>
+                  {business.ceoPhone.display}
+                </span>
               </a>
               <a href={mailHref} className="group flex items-center gap-3 text-paper/80 transition-colors hover:text-paper">
                 <span className="grid h-9 w-9 place-items-center rounded-full border border-paper/20 transition-colors group-hover:border-paper">

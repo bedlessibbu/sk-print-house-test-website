@@ -1,5 +1,5 @@
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
-import { business, mailHref, telHref, whatsappHref, defaultWhatsappMessage } from '../config/business'
+import { business, ceoTelHref, mailHref, telHref, whatsappHref, defaultWhatsappMessage } from '../config/business'
 import { useSeo } from '../lib/seo'
 import { PageHeader } from '../components/layout/PageHeader'
 import { ContactForm } from '../components/forms/ContactForm'
@@ -13,6 +13,13 @@ const channels = [
     href: telHref,
     icon: Phone,
     note: 'The quickest way to reach us during the working day.',
+  },
+  {
+    label: business.ceoPhone.label,
+    value: business.ceoPhone.display,
+    href: ceoTelHref,
+    icon: Phone,
+    note: 'For escalations and matters that need the CEO directly.',
   },
   {
     label: 'WhatsApp',

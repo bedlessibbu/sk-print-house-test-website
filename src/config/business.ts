@@ -21,7 +21,13 @@ export const business = {
     display: '+91 96436 62299',
     raw: '+919643662299',
   },
-  email: 'skprinthouse@gmail.com',
+  /** CEO direct line — additional contact, does not replace the studio number. */
+  ceoPhone: {
+    display: '+91 99998 28273',
+    raw: '+919999828273',
+    label: "CEO's direct line",
+  },
+  email: 'sk.printhouse@gmail.com',
   whatsapp: {
     number: '919643662299',
     display: '+91 96436 62299',
@@ -43,6 +49,7 @@ export const business = {
 } as const
 
 export const telHref = `tel:${business.phone.raw}`
+export const ceoTelHref = `tel:${business.ceoPhone.raw}`
 export const mailHref = `mailto:${business.email}`
 
 export function whatsappHref(message?: string): string {

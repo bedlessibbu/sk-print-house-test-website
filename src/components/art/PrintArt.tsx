@@ -160,7 +160,7 @@ function CardsArt({ variant, label }: { variant: ArtVariant; label: string }) {
             +91 96436 62299
           </text>
           <text x="150" y="552" fontSize="11" fill={C.muted} letterSpacing="0.6">
-            skprinthouse@gmail.com
+            sk.printhouse@gmail.com
           </text>
         </g>
       </g>
@@ -867,7 +867,7 @@ function CorporateArt({ label }: { label: string }) {
             +91 96436 62299
           </text>
           <text x="126" y="656" fontSize="8" fill={C.muted}>
-            skprinthouse@gmail.com
+            sk.printhouse@gmail.com
           </text>
         </g>
       </g>
