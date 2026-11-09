@@ -59,7 +59,25 @@ export function Contact() {
         intro="A call, an email or a WhatsApp message is enough to start. Share the item, quantity, size and deadline, and we will come back with the right process and a clear price."
       >
         <div className="md:col-span-5 md:col-start-8">
-          <p className="border-l border-ink/15 pl-6 text-[11px] leading-relaxed text-muted">{business.replyNote}</p>
+          <div className="flex items-start gap-5 border-l border-ink/15 pl-6">
+            <div className="shrink-0 border border-ink/10 bg-white p-2 shadow-[0_14px_36px_-24px_rgba(11,12,14,0.6)]">
+              <img
+                src="/assets/qr-code.png"
+                alt="QR code to connect with SK Print House"
+                width={128}
+                height={128}
+                loading="lazy"
+                className="h-28 w-28 sm:h-32 sm:w-32"
+              />
+            </div>
+            <div className="pt-1">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">Scan to connect</p>
+              <p className="mt-2 max-w-[16rem] text-[11px] leading-relaxed text-muted">
+                Point your phone camera at the code and we will take it from there.
+              </p>
+              <p className="mt-3 max-w-[16rem] text-[11px] leading-relaxed text-muted">{business.replyNote}</p>
+            </div>
+          </div>
         </div>
       </PageHeader>
 
