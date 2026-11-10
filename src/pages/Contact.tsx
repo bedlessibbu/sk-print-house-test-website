@@ -62,8 +62,8 @@ export function Contact() {
           <div className="flex items-start gap-5 border-l border-ink/15 pl-6">
             <div className="shrink-0 border border-ink/10 bg-white p-2 shadow-[0_14px_36px_-24px_rgba(11,12,14,0.6)]">
               <img
-                src="/assets/qr-code.png"
-                alt="QR code to connect with SK Print House"
+                src="/assets/qr-contact-card.png"
+                alt="QR code to open the SK Print House digital contact card"
                 width={128}
                 height={128}
                 loading="lazy"
@@ -71,9 +71,9 @@ export function Contact() {
               />
             </div>
             <div className="pt-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">Scan to connect</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">Scan the contact card</p>
               <p className="mt-2 max-w-[16rem] text-[11px] leading-relaxed text-muted">
-                Point your phone camera at the code and we will take it from there.
+                Point your phone camera at the code to open our digital contact card and save the details.
               </p>
               <p className="mt-3 max-w-[16rem] text-[11px] leading-relaxed text-muted">{business.replyNote}</p>
             </div>
