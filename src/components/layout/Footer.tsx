@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone } from 'lucide-react'
+import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 import { business, ceoTelHref, mailHref, navLinks, telHref, whatsappHref, defaultWhatsappMessage } from '../../config/business'
 import { services } from '../../content/services'
 import { WhatsAppIcon } from '../ui/WhatsAppIcon'
@@ -63,6 +63,17 @@ export function Footer() {
                 </span>
                 Chat on WhatsApp
               </a>
+            </div>
+
+            <div className="mt-7 max-w-sm border-t border-paper/15 pt-5 text-[12px] leading-relaxed text-paper/55">
+              <p className="flex items-start gap-2.5">
+                <MapPin size={13} strokeWidth={1.7} className="mt-0.5 shrink-0 text-paper/35" />
+                <span>{business.address.display}</span>
+              </p>
+              <p className="mt-2.5 flex items-start gap-2.5">
+                <Clock size={13} strokeWidth={1.7} className="mt-0.5 shrink-0 text-paper/35" />
+                <span>{business.openingHours.display}</span>
+              </p>
             </div>
           </div>
 

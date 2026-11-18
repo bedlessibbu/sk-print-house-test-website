@@ -5,9 +5,8 @@
  *  Update phone, email, WhatsApp, domain and address here.
  *  Every page, form and link reads from this file.
  *
- *  Fields marked `null` were not supplied by the business and are
- *  intentionally never invented in the interface. Add them when
- *  they are confirmed.
+ *  Only confirmed details belong here. If something is not supplied
+ *  by the business, leave it out rather than inventing it.
  */
 
 export const business = {
@@ -33,9 +32,20 @@ export const business = {
     display: '+91 96436 62299',
   },
 
-  /** Not supplied — do not invent. */
-  address: null as string | null,
-  openingHours: null as string | null,
+  address: {
+    line1: 'D-105, Abul Fazal Enclave',
+    line2: 'Jamia Nagar, Okhla',
+    city: 'New Delhi',
+    postalCode: '110025',
+    country: 'India',
+    display: 'D-105, Abul Fazal Enclave, Jamia Nagar, Okhla, New Delhi 110025',
+    mapsHref:
+      'https://www.google.com/maps/search/?api=1&query=' +
+      encodeURIComponent('D-105, Abul Fazal Enclave, Jamia Nagar, Okhla, New Delhi 110025'),
+  },
+  openingHours: {
+    display: '10:00 am – 10:30 pm',
+  },
 
   /** Set VITE_SITE_URL in production once the domain is confirmed. */
   siteUrl: (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') || 'https://skprinthouse.com',

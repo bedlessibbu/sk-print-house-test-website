@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
 import { ToastProvider } from './components/ui/Toast'
 import { Layout } from './components/layout/Layout'
 import { Home } from './pages/Home'
@@ -12,9 +12,12 @@ import { Contact } from './pages/Contact'
 import { Quote } from './pages/Quote'
 import { NotFound } from './pages/NotFound'
 
+/** A standalone build opens from file://, where only hash routing works. */
+const Router = import.meta.env.VITE_SINGLE_FILE === 'true' ? HashRouter : BrowserRouter
+
 export function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <ToastProvider>
         <Routes>
           <Route element={<Layout />}>
@@ -31,6 +34,6 @@ export function App() {
           </Route>
         </Routes>
       </ToastProvider>
-    </BrowserRouter>
+    </Router>
   )
 }

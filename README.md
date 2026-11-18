@@ -108,10 +108,12 @@ All business details live in **`src/config/business.ts`**:
 - CEO direct line: `+91 99998 28273`
 - email: `sk.printhouse@gmail.com`
 - WhatsApp: `+919643662299`
+- address: `D-105, Abul Fazal Enclave, Jamia Nagar, Okhla, New Delhi 110025`
+- opening hours: `10:00 am – 10:30 pm`
 - tagline: `Your Complete Printing Solution`
 - navigation, service options, form endpoint, site URL
 
-Address, opening hours and experience claims were **not supplied**, so they are intentionally absent. The Contact page explains that these details are confirmed directly. Do not add invented details.
+The address and hours appear on the Contact page, in the footer and in the organisation structured data. Experience claims, awards and testimonials have not been supplied, so they are intentionally absent — do not invent them.
 
 ### Official logo
 
@@ -214,6 +216,23 @@ npm run preview
 
 The production build is written to `dist/`.
 
+### Single-file build
+
+`sk-print-house.html` is the entire website in one file: JS, CSS, fonts, photos, logo and QR code are inlined as data URIs. It opens straight from disk with no server and no internet connection, using hash URLs (`#/about`, `#/contact`).
+
+Rebuild it with:
+
+```powershell
+$env:VITE_SINGLE_FILE='true'; npm run build
+node scripts/build-single-file.mjs
+Remove-Item Env:\VITE_SINGLE_FILE
+npm run build
+```
+
+- The first build uses `HashRouter` (required for `file://`); the last build restores the normal `BrowserRouter` output in `dist/`.
+- `scripts/build-single-file.mjs` reads `dist/`, inlines every `/assets/...` reference, and writes `sk-print-house.html`.
+- The file is about 3.4 MB because the fonts and photographs are embedded. Keep that in mind when emailing or messaging it.
+
 ---
 
 ## Known limitations
@@ -222,5 +241,4 @@ The production build is written to `dist/`.
 - The site URL defaults to the placeholder `https://skprinthouse.com`; replace it with the real domain.
 - The official logo artwork contains the older line “A COMPLETE PRINTING SOLUTION”; it is intentionally not edited.
 - Testimonials remain empty until real, permissioned feedback is collected.
-- No physical address or opening hours are published because they were not supplied.
 - The main JS bundle is around 589 kB minified (173 kB gzipped). Route-level code splitting can reduce it if needed.

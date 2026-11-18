@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Clock, Mail, MapPin, Phone } from 'lucide-react'
 import { business, ceoTelHref, mailHref, telHref, whatsappHref, defaultWhatsappMessage } from '../config/business'
 import { useSeo } from '../lib/seo'
 import { PageHeader } from '../components/layout/PageHeader'
@@ -42,7 +42,7 @@ export function Contact() {
   useSeo({
     title: 'Contact the studio',
     description:
-      'Contact SK Print House by phone, email or WhatsApp, or send an enquiry about your printing project. We reply with a clear specification and quote.',
+      'Contact SK Print House by phone, email or WhatsApp, or visit the studio at D-105, Abul Fazal Enclave, Jamia Nagar, Okhla, New Delhi 110025. Open 10:00 am to 10:30 pm.',
     path: '/contact',
   })
 
@@ -57,27 +57,29 @@ export function Contact() {
           </>
         }
         intro="A call, an email or a WhatsApp message is enough to start. Share the item, quantity, size and deadline, and we will come back with the right process and a clear price."
-      >
-        <div className="md:col-span-5 md:col-start-8">
-          <div className="flex items-start gap-5 border-l border-ink/15 pl-6">
-            <div className="shrink-0 border border-ink/10 bg-white p-2 shadow-[0_14px_36px_-24px_rgba(11,12,14,0.6)]">
+        aside={
+          <div className="flex max-w-xs items-center gap-4 border border-ink/10 bg-paper-light p-3 shadow-[0_18px_44px_-32px_rgba(11,12,14,0.55)] lg:ml-auto">
+            <div className="shrink-0 bg-white p-1.5">
               <img
                 src="/assets/qr-contact-card.png"
                 alt="QR code to open the SK Print House digital contact card"
-                width={128}
-                height={128}
+                width={112}
+                height={112}
                 loading="lazy"
-                className="h-28 w-28 sm:h-32 sm:w-32"
+                className="h-24 w-24"
               />
             </div>
-            <div className="pt-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">Scan the contact card</p>
-              <p className="mt-2 max-w-[16rem] text-[11px] leading-relaxed text-muted">
-                Point your phone camera at the code to open our digital contact card and save the details.
+            <div>
+              <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-muted">Scan the card</p>
+              <p className="mt-1.5 text-[11px] leading-relaxed text-muted">
+                Open our digital contact card and save the studio details to your phone.
               </p>
-              <p className="mt-3 max-w-[16rem] text-[11px] leading-relaxed text-muted">{business.replyNote}</p>
             </div>
           </div>
+        }
+      >
+        <div className="md:col-span-5 md:col-start-8">
+          <p className="border-l border-ink/15 pl-6 text-[11px] leading-relaxed text-muted">{business.replyNote}</p>
         </div>
       </PageHeader>
 
@@ -120,19 +122,23 @@ export function Contact() {
                   <MapPin size={15} strokeWidth={1.7} className="mt-0.5 shrink-0 text-muted" />
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">Studio location</p>
-                    <p className="mt-1.5 text-[12px] leading-relaxed text-ink">
-                      Our full address has not been published on this site yet. Ask us on WhatsApp and we will share
-                      the exact location and collection details.
-                    </p>
+                    <p className="mt-1.5 text-[12px] leading-relaxed text-ink">{business.address.display}</p>
+                    <a
+                      href={business.address.mapsHref}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:text-red"
+                    >
+                      Get directions
+                      <ArrowUpRight size={12} strokeWidth={1.8} />
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 border-t border-ink/10 pt-4">
                   <Clock size={15} strokeWidth={1.7} className="mt-0.5 shrink-0 text-muted" />
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted">Opening hours</p>
-                    <p className="mt-1.5 text-[12px] leading-relaxed text-ink">
-                      Hours are confirmed directly so you are not met with a closed door. Message before visiting.
-                    </p>
+                    <p className="mt-1.5 text-[12px] leading-relaxed text-ink">{business.openingHours.display}</p>
                   </div>
                 </div>
               </div>
